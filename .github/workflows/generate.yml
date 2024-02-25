@@ -17,7 +17,7 @@ jobs:
       - name: Install pnpm packages
         run: pnpm ci
       - name: Generate Files from Editor
-        run: ./.github/workflows/actions/generate
+        uses: ./.github/workflows/actions/generate
         with: 
           example-param: Hello World
       # - name: Upload Generated Files
