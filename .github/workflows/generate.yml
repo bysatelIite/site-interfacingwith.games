@@ -14,8 +14,8 @@ jobs:
   publish: 
     runs-on: ubuntu-latest
     steps: 
-      - name: Install npm packages
-        run: npm ci
+      - name: Install pnpm packages
+        run: pnpm install --frozen-lockfile
       - name: Generate Files from Editor
         uses: ./.github/workflows/actions/generate
         with: 
