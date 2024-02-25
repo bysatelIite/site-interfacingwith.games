@@ -15,8 +15,8 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - uses: pnpm/action-setup@v3
-          with:
-            version: 8
+        with:
+          version: 8
       - name: Install pnpm packages
         run: pnpm install --frozen-lockfile
       - name: Generate Files from Editor
