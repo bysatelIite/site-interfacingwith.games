@@ -1,0 +1,29 @@
+name: Publish from Editor
+on: 
+  workflow_dispatch: 
+  
+# permissions: 
+#   content: write
+#   pages: write
+#   id-token: write
+# concurrency: 
+#   group: "pages"
+#   cancel-in-progress: false
+
+jobs: 
+  publish: 
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Setup Javascript (with Node.js)
+        uses: actions/setup-node@v3
+        with: 
+          node-version: 18 
+      - name: Install Javascript Dependencies
+        run: npm install
+      - name: Generate Files from Editor
+        run: node ./generate.js
+      - name: Upload Generated Files
+        uses: actions/upload-artifact@v3
+        with:
+          name: generated-output
+          path: output-folder/
