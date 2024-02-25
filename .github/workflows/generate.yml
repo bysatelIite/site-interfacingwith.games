@@ -14,8 +14,8 @@ jobs:
   publish: 
     runs-on: ubuntu-latest
     steps: 
-      - name: Install pnpm packages
-        run: pnpm ci
+      - name: Install npm packages
+        run: npm ci
       - name: Generate Files from Editor
         uses: ./.github/workflows/actions/generate
         with: 
