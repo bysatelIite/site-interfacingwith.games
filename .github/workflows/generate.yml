@@ -14,16 +14,14 @@ jobs:
   publish: 
     runs-on: ubuntu-latest
     steps: 
-      - name: Setup Javascript (with Node.js)
-        uses: actions/setup-node@v3
-        with: 
-          node-version: 18 
-      - name: Install Javascript Dependencies
-        run: npm install
+      - name: Install pnpm packages
+        run: pnpm ci
       - name: Generate Files from Editor
-        run: node ./generate.js
-      - name: Upload Generated Files
-        uses: actions/upload-artifact@v3
-        with:
-          name: generated-output
-          path: output-folder/
+        run: ./.github/workflows/actions/generate
+        with: 
+          example-param: Hello World
+      # - name: Upload Generated Files
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: generated-output
+      #     path: output-folder/

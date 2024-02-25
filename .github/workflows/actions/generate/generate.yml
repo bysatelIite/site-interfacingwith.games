@@ -1,0 +1,8 @@
+name: "Generate From Editor"
+description: "Github Action to create files for a new blog post for upload. "
+inputs:
+  example-param:
+    description: "An example parameter"
+runs:
+  using: "node12"
+  main: "generate.js"
