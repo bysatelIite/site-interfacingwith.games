@@ -1,4 +1,4 @@
-name: [iwg] Publish from Editor
+name: Publish from Editor
 on: 
   workflow_dispatch: 
   
