@@ -27,6 +27,10 @@ jobs:
         uses: actions/checkout@v4
         with:
           sparse-checkout: .
+        # with:
+          # repository: bysatelIite/site-interfacingwith.games
+          # path: site
+      - name: Commit to Main Site
         run: |
             echo "This is the content of my file." > generated_file.txt 
             git config user.name 'James Jun'
@@ -34,8 +38,3 @@ jobs:
             git add 'generated_file.txt'
             git commit -m "Generated from testing"
             git push
-      #   # with:
-      #     # repository: bysatelIite/site-interfacingwith.games
-      #     # path: site
-      # - name: Commit to Main Site
-        
