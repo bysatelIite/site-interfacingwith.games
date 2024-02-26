@@ -22,7 +22,7 @@ jobs:
           pnpm install @actions/core
           pnpm install @actions/github
       - name: Generate Files from Editor
-        run: node -e "console.log('Hello from JavaScript!');
+        run: node -e "console.log('Hello from JavaScript!');"
       - name: Checkout Main Site
         uses: actions/checkout@v4
         with:
