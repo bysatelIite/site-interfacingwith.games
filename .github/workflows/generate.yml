@@ -18,14 +18,12 @@ jobs:
       - uses: pnpm/action-setup@v3
         with:
           version: 8
-      - name: Install Dependecies for PNPM
+      - name: Install Dependencies for PNPM
         run: | 
           pnpm install @actions/core
           pnpm install @actions/github
       - name: Generate Files from Editor
-        uses: ./.github/workflows/actions/generate
-        with: 
-          example-param: Hello World
+        run: node -e "console.log('Hello from JavaScript!')" 
       # - name: Upload Generated Files
       #   uses: actions/upload-artifact@v3
       #   with:
