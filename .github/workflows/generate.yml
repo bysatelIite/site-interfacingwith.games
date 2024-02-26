@@ -1,4 +1,4 @@
-name: Publish from Editor
+name: [iwg] Publish from Editor
 on: 
   workflow_dispatch: 
   
@@ -14,7 +14,6 @@ jobs:
   publish: 
     runs-on: ubuntu-latest
     steps: 
-      # - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v3
         with:
           version: 8
@@ -23,9 +22,22 @@ jobs:
           pnpm install @actions/core
           pnpm install @actions/github
       - name: Generate Files from Editor
-        run: node -e "console.log('Hello from JavaScript!')" 
-      # - name: Upload Generated Files
-      #   uses: actions/upload-artifact@v3
-      #   with:
-      #     name: generated-output
-      #     path: output-folder/
+        run: node -e << EOF 
+          console.log('Hello from JavaScript!');
+          console.log('Testing the workflow here.');
+          EOF 
+      - name: Checkout Main Site
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: .
+        # with:
+          # repository: bysatelIite/site-interfacingwith.games
+          # path: site
+      - name: Commit to Main Site
+        run: |
+            echo "This is the content of my file." > generated_file.txt 
+            git config user.name 'James Jun'
+            git config user.email 'by@satel.li'
+            git add 'generated_file.txt'
+            git commit -m "Generated from testing"
+            git push
